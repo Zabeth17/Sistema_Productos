@@ -7,7 +7,6 @@ import {
   BarChart3,
   Boxes,
   ClipboardList,
-  Hammer,
   LayoutDashboard,
   Package,
   Settings,
@@ -35,8 +34,7 @@ const sections: NavSection[] = [
       { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
       { label: "Inventario", href: "/admin/inventario", icon: Boxes },
       { label: "Productos", href: "/admin/productos", icon: Package },
-      { label: "Fichas técnicas", href: "/admin/recetas", icon: ClipboardList },
-      { label: "Taller", href: "/admin/produccion", icon: Hammer },
+      { label: "Recetas", href: "/admin/recetas", icon: ClipboardList },
       { label: "Reportes", href: "/admin/reportes", icon: BarChart3 },
       { label: "Finanzas", href: "/admin/finanzas", icon: CircleDollarSign }
     ]
@@ -74,8 +72,8 @@ export function Sidebar() {
       {/* Brand header */}
       <div className="flex h-[var(--header-height)] items-center gap-3 border-b border-[var(--border-soft)] px-5">
         <Image
-          src="/LOGOSCAP/simbolo_solo.svg"
-          alt="Carpintería Ibarra Picado"
+          src="/LOGOS/logo-mark.svg"
+          alt="Riquiquísimo"
           width={40}
           height={40}
           className="shrink-0 rounded-lg"
@@ -83,10 +81,10 @@ export function Sidebar() {
         />
         <div className="min-w-0">
           <p className="brand-heading truncate text-[1.05rem] font-bold italic leading-none">
-            Ibarra Picado
+            Riquiquísimo
           </p>
           <p className="mt-0.5 text-[0.65rem] font-semibold uppercase tracking-widest text-[var(--cacao-light)]">
-            Carpintería
+            Pastelería
           </p>
         </div>
       </div>
@@ -140,7 +138,7 @@ export function Sidebar() {
             Sistema
           </p>
           <p className="mt-0.5 text-[0.8125rem] font-semibold text-[var(--cacao)]">
-            Taller y ventas en línea
+            Administración en línea
           </p>
         </div>
         <button

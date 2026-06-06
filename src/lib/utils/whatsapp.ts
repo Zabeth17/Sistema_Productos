@@ -19,39 +19,41 @@ export function generateWhatsAppLink(
     porciones?: string;
   }
 ): string {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "50558160986";
+  const phone = "50558160986"; // Número oficial de Riquiquísimo
   const shortCode = pedidoId.split("-")[0].toUpperCase();
 
   let message = "";
 
   if (options?.detalles_personalizados) {
-    message = `*NUEVA SOLICITUD A MEDIDA*\n\n` +
+    // Caso de encargo personalizado al repostero
+    message = `*NUEVO ENCARGO PERSONALIZADO* 🎂\n\n` +
       `*Código:* #${shortCode}\n` +
       `*Cliente:* ${nombre.trim()}\n` +
       `*Teléfono:* ${options.telefono?.trim() || "No especificado"}\n` +
       `*Dirección:* ${options.direccion?.trim() || "No especificada"}\n\n` +
-      `*Detalles del trabajo:* ${options.detalles_personalizados.trim()}\n` +
+      `*Detalles del Postre:* ${options.detalles_personalizados.trim()}\n` +
       `*Fecha Requerida:* ${options.fecha_entrega || "No especificada"}\n` +
-      `*Medidas/Cantidad:* ${options.porciones || "No especificada"}\n\n` +
-      `Quedo a la espera de la cotización de Carpintería Ibarra Picado.`;
+      `*Porciones/Cantidad:* ${options.porciones || "No especificada"}\n\n` +
+      `¡Quedo a la espera de la cotización del repostero! 👩‍🍳`;
   } else {
+    // Caso de pedido tradicional de vitrina
     const itemsText = items
       .map(
         (item) =>
-          `*${item.cantidad}x* ${item.nombre} (${formatCurrency(
+          `🎂 *${item.cantidad}x* ${item.nombre} (${formatCurrency(
             item.precio_unitario * item.cantidad
           )})`
       )
       .join("\n");
 
-    message = `*NUEVA COTIZACIÓN DE CARPINTERÍA*\n\n` +
+    message = `*NUEVO PEDIDO DE VITRINA* 🛍️\n\n` +
       `*Código:* #${shortCode}\n` +
       `*Cliente:* ${nombre.trim()}\n` +
       `*Teléfono:* ${options?.telefono?.trim() || "No especificado"}\n` +
       `*Dirección:* ${options?.direccion?.trim() || "No especificada"}\n\n` +
-      `*Detalle de productos:*\n${itemsText}\n\n` +
+      `*Detalle del Pedido:*\n${itemsText}\n\n` +
       `*Total Estimado:* ${formatCurrency(total)}\n\n` +
-      `Quedo a la espera de confirmación.`;
+      `¡Quedo a la espera de su confirmación! 🥧`;
   }
 
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;

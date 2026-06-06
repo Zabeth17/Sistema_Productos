@@ -26,23 +26,23 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Carpintería Ibarra Picado",
+  title: "Riquiquísimo — Pastelería Artesanal",
   description:
-    "Sistema operativo para ventas, inventario, compras de madera, fabricación y cotizaciones de carpintería.",
+    "Sistema operativo para inventario, producción y ventas de pastelería artesanal. Modo offline, sincronización automática y catálogo público.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    title: "Ibarra Picado",
+    title: "Riquiquísimo",
     statusBarStyle: "default"
   },
   icons: {
-    icon: "/LOGOSCAP/favicon_512.svg",
-    apple: "/LOGOSCAP/pwa_icon_192x192.png"
+    icon: "/LOGOS/favicon.svg",
+    apple: "/LOGOS/icon-192.png"
   }
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4A2E20",
+  themeColor: "#B83E6C",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5

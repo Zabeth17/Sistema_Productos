@@ -9,7 +9,6 @@ out/
 build/
 
 # local env
-.env
 .env*.local
 
 # logs
